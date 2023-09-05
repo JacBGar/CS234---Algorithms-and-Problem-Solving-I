@@ -1,0 +1,84 @@
+/*
+ *  My name is Jacob Gareis
+ *  his is my submission for assignment 1
+ * 
+ * 
+ * The problem I am aiming to solve through this program is converting a user given
+ * volume in cups and converting it to various other volume measurements
+ * 
+ * 1. prompt the user to select what type of measurement they wish to convert to
+ * 2. retrieve their input and then request a volume in cups to be converted
+ * 3. convert their cup volume to a different measurement
+ * 4. return the correct converted value to the user
+ * 
+ * Simple conversions
+ *  1 cup = 16 Tablespoons
+ *  1 cup = 8 ounces
+ *  2 cups = 96 teaspoons
+ *  4 cups = 2 gallons
+ *  
+ *  The inputs of this application:
+ *  Conversion type
+ *  Volume to be converted
+ *  
+ *  The outputs of this application:
+ *  The converted volume
+ *  
+ *  Required conversion data:
+ *  1 cup equals 48 teaspoons, 16 tablespoons, 8 ounces, 0.5 pints, 0.25 quarts, and 0.0625 gallons
+ *  
+ *  
+ */
+import javax.swing.JOptionPane;
+
+public class Conversions {
+    public static void main(String[] args) {
+
+        int volumeInput;
+        int choiceConversion;
+
+        String messageConversion = "Please select an option for conversion: "
+                + "1 for teaspoons, 2 for tablespoons, 3 for ounces, 4 for pints, 5 for quarts"
+                + ", or 6 for gallons";
+
+        choiceConversion = Integer.parseInt(JOptionPane.showInputDialog(messageConversion));
+
+        String volumeTextRequest = "Please input the volume (in cups) which you want to convert.";
+
+        volumeInput = Integer.parseInt(JOptionPane.showInputDialog(volumeTextRequest));
+
+        double result = 0; // this is done to initialize the variable
+        
+        if (choiceConversion == 1)
+        {
+            result = volumeInput * 48; // Calculate teaspoons
+        }
+        else if (choiceConversion == 2)
+        {
+            result = volumeInput * 16; // Calculate tablespoons
+        }
+        else if (choiceConversion == 3)
+        {
+            result = volumeInput * 8; // Calculate ounces
+        }
+        else if (choiceConversion == 4)
+        {
+            result = volumeInput * 0.5; // Calculate pints
+        }
+        else if (choiceConversion == 5)
+        {
+            result = volumeInput * 0.25; // Calculate quarts
+        }
+        else if (choiceConversion == 6)
+        {
+            result = volumeInput * 0.0625; // Calculate gallons
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(null, "Your choice is invalid");
+            System.exit(1); // This is used to exit the program if the choice is invalid
+        }
+
+        JOptionPane.showMessageDialog(null, "Result: " + result);
+    }
+}
