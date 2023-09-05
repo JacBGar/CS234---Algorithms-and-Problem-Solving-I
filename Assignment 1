@@ -36,7 +36,8 @@ public class Conversions {
 
         int volumeInput;
         int choiceConversion;
-
+        String type = null;
+        
         String messageConversion = "Please select an option for conversion: "
                 + "1 for teaspoons, 2 for tablespoons, 3 for ounces, 4 for pints, 5 for quarts"
                 + ", or 6 for gallons";
@@ -51,7 +52,7 @@ public class Conversions {
         
         if (choiceConversion == 1)
         {
-            result = volumeInput * 48; // Calculate teaspoons
+            result = (volumeInput * 48); // Calculate teaspoons
         }
         else if (choiceConversion == 2)
         {
@@ -78,7 +79,31 @@ public class Conversions {
             JOptionPane.showMessageDialog(null, "Your choice is invalid");
             System.exit(1); // This is used to exit the program if the choice is invalid
         }
+        if (choiceConversion == 1)
+        {
+            type = ("teaspoons"); // Calculate teaspoons
+        }
+        else if (choiceConversion == 2)
+        {
+            type = ("tablespoons"); // Calculate tablespoons
+        }
+        else if (choiceConversion == 3)
+        {
+            type = ("ounces"); // Calculate ounces
+        }
+        else if (choiceConversion == 4)
+        {
+            type = ("pints"); // Calculate pints
+        }
+        else if (choiceConversion == 5)
+        {
+            type = ("quarts"); // Calculate quarts
+        }
+        else if (choiceConversion == 6)
+        {
+            type = ("gallons"); // Calculate gallons
+        }
 
-        JOptionPane.showMessageDialog(null, "Result: " + result);
+        JOptionPane.showMessageDialog(null, "Your converted volume is: " + result + " " + type);
     }
 }
