@@ -1,0 +1,86 @@
+public class driver{
+    public static void main(String[] args) throws FileNotFoundException {
+
+ //       methods.toAllUppercase();
+
+    methods.processFile();
+    }
+}
+
+public char toUpper(char c)
+{
+    System.out.println(c + " is the character and it has a value of " + (int) c);
+
+    if ((int) c >= 97)
+    {
+        return (char) ((int) c - 32);
+    }
+    return c;
+}
+
+public void toAllUpper()
+{
+    String str = JOptionPane.showInputDialog("Please type in a word");
+
+    System.out.println("The input word is " + str);
+
+    int length = str.length();
+
+    System.out.println("The lgnth of the word is " + length);
+
+    String uppercase = "";
+
+    for (int i = 0; i < length; i++)
+    {
+        System.out.print(str.charAt(i) + " ");
+
+        uppercase = uppercase + toUpper(str.charAt(i));
+    }
+
+    System.out.println("The converted word in uppercase is " + uppercase);
+}
+
+public void processFile() throws FileNotFoundException
+{
+    Scanner infile = new Scanner(new File("lines.dat"));
+
+    String str = infile.nextLine();
+
+    processLine(str);
+
+    while (infile.hasNext())
+    {
+        str = infile.nextLine();
+        processLine(str);
+    }
+}
+
+private void processLine(String str) {
+    int length = str.length();
+
+    int countWords = 0;
+
+    boolean shouldCount = false;
+
+    for (int i = 0; i < length; i++)
+    {
+        if (str.charAt(i) == ' ' && shouldCount == true)
+        {
+            countWords++;
+        }
+        
+        if (str.charAt(i) == ' ')
+        {
+            shouldCount = false;
+        }
+
+        else
+        {
+            shouldCount = true;
+        }
+
+    }
+    countWords++;
+
+    System.out.println(str + " " + countWords);
+}
